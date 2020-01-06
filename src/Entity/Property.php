@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Cocur\Slugify\Slugify;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PropertyRepository")
@@ -109,6 +110,11 @@ class Property
         return $this;
     }
 
+    public function getSlug(): string
+    {
+        return (new Slugify())->slugify($this->title);
+    }
+
     public function getDescription(): ?string
     {
         return $this->description;
@@ -172,6 +178,11 @@ class Property
     public function getPrice(): ?int
     {
         return $this->price;
+    }
+
+    public function getFormattedPrice() 
+    {
+        return number_format($this->price,0, '',' ');
     }
 
     public function setPrice(int $price): self

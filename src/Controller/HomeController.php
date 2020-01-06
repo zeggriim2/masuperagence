@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 
+use App\Repository\PropertyRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -12,7 +13,10 @@ class HomeController extends AbstractController {
      *
      * @return void
      */
-    public function index() {
-        return $this->render('pages/home.html.twig');
+    public function index(PropertyRepository $propertyRepository) {
+        $properties = $propertyRepository->findLatest();
+        return $this->render('pages/home.html.twig', [
+            'properties' => $properties
+        ]);
     }
 }
