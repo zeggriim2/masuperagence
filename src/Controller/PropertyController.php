@@ -75,14 +75,14 @@ class PropertyController extends AbstractController{
      * @Route("/biens/{slug}-{id}", name="property.show", requirements={"slug": "[a-z0-9\-]*"})
      * @return response
      */
-    public function show($slug, $id): response{
+    public function show(Property $property, string $slug): response{
 
-        $property = $this->propertyRepository->find($id);
-
-        if (!$property) {
-            throw $this->createNotFoundException(
-                'No product found for id '.$id
-            );
+        if ($property->getSlug() !== $slug){
+            return $this->redirectToRoute('property.show',
+            [
+                'id' => $property->getId(),
+                'slug' => $property->getSlug()
+            ],301);
         }
 
         return $this->render('property/show.html.twig', [
