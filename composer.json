@@ -6,6 +6,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "cocur/slugify": "^4.0",
+        "doctrine/orm": "dev-address-persistence-deprecations as v2.7.0",
         "sensio/framework-extra-bundle": "^5.1",
         "symfony/apache-pack": "^1.0",
         "symfony/asset": "4.4.*",
@@ -78,6 +79,12 @@
         "symfony": {
             "allow-contrib": false,
             "require": "4.4.*"
+        }
+    },
+    "repositories": {
+        "greg0ire": {
+            "type": "vcs",
+            "url": "https://github.com/greg0ire/doctrine-orm"
         }
     }
 }

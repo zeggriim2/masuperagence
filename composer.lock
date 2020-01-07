@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4c13c6dbb665100ee3981f8832fdd284",
+    "content-hash": "aa9bbdc98a69b7289e671aff3769d51e",
     "packages": [
         {
             "name": "cocur/slugify",
@@ -975,17 +975,31 @@
         },
         {
             "name": "doctrine/orm",
-            "version": "v2.7.0",
+            "version": "dev-address-persistence-deprecations",
             "source": {
                 "type": "git",
-                "url": "https://github.com/doctrine/orm.git",
-                "reference": "4d763ca4c925f647b248b9fa01b5f47aa3685d62"
+                "url": "https://github.com/greg0ire/doctrine-orm.git",
+                "reference": "519e792153f535bc67ee48dda8001fb3845d0273"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/orm/zipball/4d763ca4c925f647b248b9fa01b5f47aa3685d62",
-                "reference": "4d763ca4c925f647b248b9fa01b5f47aa3685d62",
+                "url": "https://api.github.com/repos/greg0ire/doctrine-orm/zipball/519e792153f535bc67ee48dda8001fb3845d0273",
+                "reference": "519e792153f535bc67ee48dda8001fb3845d0273",
                 "shasum": ""
+            },
+            "archive": {
+                "exclude": [
+                    "!vendor",
+                    "tests",
+                    "*phpunit.xml",
+                    ".travis.yml",
+                    "build.xml",
+                    "build.properties",
+                    "composer.phar",
+                    "vendor/satooshi",
+                    "lib/vendor",
+                    "*.swp"
+                ]
             },
             "require": {
                 "doctrine/annotations": "^1.8",
@@ -995,7 +1009,7 @@
                 "doctrine/dbal": "^2.9.3",
                 "doctrine/event-manager": "^1.1",
                 "doctrine/instantiator": "^1.3",
-                "doctrine/persistence": "^1.2",
+                "doctrine/persistence": "^1.3.3",
                 "ext-pdo": "*",
                 "php": "^7.1",
                 "symfony/console": "^3.0|^4.0|^5.0"
@@ -1022,7 +1036,12 @@
                     "Doctrine\\ORM\\": "lib/Doctrine/ORM"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Doctrine\\Tests\\": "tests/Doctrine/Tests",
+                    "Doctrine\\Performance\\": "tests/Doctrine/Performance"
+                }
+            },
             "license": [
                 "MIT"
             ],
@@ -1054,7 +1073,10 @@
                 "database",
                 "orm"
             ],
-            "time": "2019-11-19T08:38:05+00:00"
+            "support": {
+                "source": "https://github.com/greg0ire/doctrine-orm/tree/address-persistence-deprecations"
+            },
+            "time": "2020-01-03T15:17:52+00:00"
         },
         {
             "name": "doctrine/persistence",
@@ -6648,9 +6670,18 @@
             "time": "2019-11-20T10:44:55+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "v2.7.0",
+            "alias_normalized": "2.7.0.0",
+            "version": "dev-address-persistence-deprecations",
+            "package": "doctrine/orm"
+        }
+    ],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "doctrine/orm": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
