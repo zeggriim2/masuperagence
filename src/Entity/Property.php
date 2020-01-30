@@ -88,6 +88,101 @@ class Property
      */
     private $created_at;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $swimmingpool;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $sauna;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $wifi;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $sport;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $helipad;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $terrasse;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $balcon;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $hifi;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $television;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $plageprox;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $mervue;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $montagnevue;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $enville;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $visavis;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $plageprive;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $pieddanseau;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $centreville;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $champetre;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $typepropriete;
+
     public function __construct()
     {
         $this->created_at = new \DateTime();
@@ -265,6 +360,258 @@ class Property
     public function setCreatedAt(\DateTimeInterface $created_at): self
     {
         $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getSwimmingpool(): ?bool
+    {
+        return $this->swimmingpool;
+    }
+
+    public function setSwimmingpool(bool $swimmingpool): self
+    {
+        $this->swimmingpool = $swimmingpool;
+
+        return $this;
+    }
+
+    public function getSauna(): ?bool
+    {
+        return $this->sauna;
+    }
+
+    public function setSauna(bool $sauna): self
+    {
+        $this->sauna = $sauna;
+
+        return $this;
+    }
+
+    public function getWifi(): ?bool
+    {
+        return $this->wifi;
+    }
+
+    public function setWifi(bool $wifi): self
+    {
+        $this->wifi = $wifi;
+
+        return $this;
+    }
+
+    public function getSport(): ?bool
+    {
+        return $this->sport;
+    }
+
+    public function setSport(bool $sport): self
+    {
+        $this->sport = $sport;
+
+        return $this;
+    }
+
+    public function getHelipad(): ?bool
+    {
+        return $this->helipad;
+    }
+
+    public function setHelipad(bool $helipad): self
+    {
+        $this->helipad = $helipad;
+
+        return $this;
+    }
+
+    public function getTerrasse(): ?bool
+    {
+        return $this->terrasse;
+    }
+
+    public function setTerrasse(bool $terrasse): self
+    {
+        $this->terrasse = $terrasse;
+
+        return $this;
+    }
+
+    public function getBalcon(): ?bool
+    {
+        return $this->balcon;
+    }
+
+    public function setBalcon(bool $balcon): self
+    {
+        $this->balcon = $balcon;
+
+        return $this;
+    }
+
+    public function getHifi(): ?bool
+    {
+        return $this->hifi;
+    }
+
+    public function setHifi(bool $hifi): self
+    {
+        $this->hifi = $hifi;
+
+        return $this;
+    }
+
+    public function getTelevision(): ?bool
+    {
+        return $this->television;
+    }
+
+    public function setTelevision(bool $television): self
+    {
+        $this->television = $television;
+
+        return $this;
+    }
+
+    public function getPlageprox(): ?bool
+    {
+        return $this->plageprox;
+    }
+
+    public function setPlageprox(bool $plageprox): self
+    {
+        $this->plageprox = $plageprox;
+
+        return $this;
+    }
+
+    public function getMervue(): ?bool
+    {
+        return $this->mervue;
+    }
+
+    public function setMervue(bool $mervue): self
+    {
+        $this->mervue = $mervue;
+
+        return $this;
+    }
+
+    public function getMontagnevue(): ?bool
+    {
+        return $this->montagnevue;
+    }
+
+    public function setMontagnevue(bool $montagnevue): self
+    {
+        $this->montagnevue = $montagnevue;
+
+        return $this;
+    }
+
+    public function getEnville(): ?bool
+    {
+        return $this->enville;
+    }
+
+    public function setEnville(bool $enville): self
+    {
+        $this->enville = $enville;
+
+        return $this;
+    }
+
+    public function getVisavis(): ?bool
+    {
+        return $this->visavis;
+    }
+
+    public function setVisavis(bool $visavis): self
+    {
+        $this->visavis = $visavis;
+
+        return $this;
+    }
+
+    public function getPlageprive(): ?bool
+    {
+        return $this->plageprive;
+    }
+
+    public function setPlageprive(bool $plageprive): self
+    {
+        $this->plageprive = $plageprive;
+
+        return $this;
+    }
+
+    public function getPieddanseau(): ?bool
+    {
+        return $this->pieddanseau;
+    }
+
+    public function setPieddanseau(bool $pieddanseau): self
+    {
+        $this->pieddanseau = $pieddanseau;
+
+        return $this;
+    }
+
+    public function getCentreville(): ?bool
+    {
+        return $this->centreville;
+    }
+
+    public function setCentreville(bool $centreville): self
+    {
+        $this->centreville = $centreville;
+
+        return $this;
+    }
+
+    public function getChampetre(): ?bool
+    {
+        return $this->champetre;
+    }
+
+    public function setChampetre(bool $champetre): self
+    {
+        $this->champetre = $champetre;
+
+        return $this;
+    }
+
+    public function getMas(): ?bool
+    {
+        return $this->mas;
+    }
+
+    public function setMas(bool $mas): self
+    {
+        $this->mas = $mas;
+
+        return $this;
+    }
+
+    public function getManoir(): ?bool
+    {
+        return $this->manoir;
+    }
+
+    public function setManoir(bool $manoir): self
+    {
+        $this->manoir = $manoir;
+
+        return $this;
+    }
+
+    public function getTypepropriete(): ?string
+    {
+        return $this->typepropriete;
+    }
+
+    public function setTypepropriete(string $typepropriete): self
+    {
+        $this->typepropriete = $typepropriete;
 
         return $this;
     }
