@@ -1,0 +1,138 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('evenement') }}
+{% endblock %}
+
+{% block body %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('evenement') }}
+{% endblock %}
+<div class="bandeauRegion">
+        <div class="card">
+            <img class="card-img-top" src="https://cdn.checkyeti.com/images/original/ski-school-val-d-isere_sem-resort-hero.jpg?width=1919&cropWidth=3840&cropHeight=1101&cropY=1055&cropFirst=true" alt="Card image">
+            <div class="card-img-overlay">
+                <h4 class="card-title">Isère</h4>
+                <p class="card-text description">
+                    Le département de l’Isère est un département français de la région 
+                    Auvergne-Rhône-Alpes et tirant son nom de la rivière Isère, affluent de la rive gauche du Rhône. 
+                    L'Insee et La Poste lui attribuent le code 38. Sa préfecture est Grenoble.
+
+                    Au sein de la région Auvergne-Rhône-Alpes, l'Isère recouvre une grande partie de l'ancienne 
+                    région du Dauphiné dont la capitale était Grenoble et est par ailleurs le département le plus vaste et 
+                    le deuxième par la population ; ses habitants sont les Isérois et Iséroises.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row principal-sec">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-3">
+            <div class="borderCard">
+                <h3 class="cell">Equipement</h3>
+                <hr>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="piscineCheck" name="example1">
+                    <label class="custom-control-label" for="piscineCheck">Piscine</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="climatisationCheck" name="example1">
+                    <label class="custom-control-label" for="climatisationCheck">Climatisation</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="wifiCheck" name="example1">
+                    <label class="custom-control-label" for="wifiCheck">Wifi</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <div class="row">
+                {% for property in properties %}
+                <div class="col-lg-5 col-md-12 margin-top">
+                    <div class="card card-hover">
+                        <img class="card-img-top" src="https://proprietes.lefigaro.fr/indicateur/images/PDF/CMS/articles/428831262-1524579879.1.jpg" alt="Card image">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="{{ path('property.show', {id: property.id, slug: property.slug}) }}">{{ property.title }}</a>
+                            </h5>
+                            <p class="card-tex-tex">
+                                {{ property.city }} ({{ property.PostalCode }})
+                            </p>
+                            <div class="text-primary" style="font-size: 2rem ;font-weight: bold; ">
+                                {{ property.FormattedPrice }} €
+                            </div>
+                        </div>
+                    </div>
+                </div>            
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="container text-center">    
+        <h3>Our Partners</h3>
+        <br>
+        <div class="row">
+            <div class="col-sm-2">
+                <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+                <p>Partner 1</p>
+            </div>
+            <div class="col-sm-2"> 
+                <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+                <p>Partner 2</p>    
+            </div>
+            <div class="col-sm-2"> 
+                <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+                <p>Partner 3</p>
+            </div>
+            <div class="col-sm-2"> 
+                <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+                <p>Partner 4</p>
+            </div> 
+            <div class="col-sm-2"> 
+                <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+                <p>Partner 5</p>
+            </div>     
+            <div class="col-sm-2"> 
+                <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+                <p>Partner 6</p>
+            </div> 
+        </div>
+    </div>
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+      
+          <!-- Modal content-->
+            <div class="modal-content modal-content-connect">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal"><span class="fas fa-times"></span></button>
+                    <div class="form-title">
+                        <h1>Connexion</h1>
+                    </div>
+                
+                    <div class="contact-form-connect">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="fname">Identifiant</label>
+                            <div class="col-lg-12 col-sm-10">          
+                                <input type="text" class="form-control" id="fname" placeholder="Username" name="fname">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="lname">Mot de passe</label>
+                            <div class="col-lg-12 col-sm-10">          
+                                <input type="password" class="form-control" id="lname" placeholder="Password" name="lname">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-group-connect">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body %}

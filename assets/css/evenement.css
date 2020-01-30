@@ -1,0 +1,38 @@
+.custom-control-label {
+    margin-bottom: 1rem;
+}
+
+.bandeauRegion {
+    margin-top: 70px;
+    width: 100%;
+    position: relative;
+}
+
+.card-img-overlay {
+    color: white;
+}
+
+.card-text.description {
+    width: 50%;
+    background-color: rgba(0, 0, 0, 0.658);
+    padding: 1rem;
+}
+
+.card.card-hover:hover {
+    cursor: pointer;
+    background-color: rgba(128, 128, 128, 0.5);
+}
+
+.card-text.card-text-end {
+    text-align: end;
+}
+
+@media (max-width: 1130px) {
+    .bandeauRegion {
+        display: none;
+    }
+
+    .principal-sec {
+        margin-top: 70px;
+    }
+}
