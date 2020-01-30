@@ -3,91 +3,92 @@
 namespace App\Controller;
 
 use App\Entity\Property;
+use App\Form\PropertyType;
 use App\Repository\PropertyRepository;
-use Doctrine\Persistence\ObjectManager;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-
-
-class PropertyController extends AbstractController{
-
+/**
+ * @Route("/property")
+ */
+class PropertyController extends AbstractController
+{
     /**
-     *
-     * @var [propertyRepository]
+     * @Route("/", name="property_index", methods={"GET"})
      */
-    private $propertyRepository;
-
-    private $em;
-
-
-    public function __construct(PropertyRepository $propertyRepository,EntityManagerInterface $em)
+    public function index(PropertyRepository $propertyRepository): Response
     {
-        $this->propertyRepository = $propertyRepository;
-        $this->em = $em;
-    }
-
-    /**
-     * Undocumented function
-     * @Route("/biens", name="property.index")
-     * @return response
-     */
-    public function index():response {
-
-        $property = $this->propertyRepository->findAllVisible();
-        // $property[0]->setSold(true);
-        // $this->em->flush();
-        dump($property);
-
-        // Debut programme :  ajout d'un bien
-        // $property = new Property();
-        // $property->setTitle('Mon premier titre')
-        //         ->setDescription('Une petite description')
-        //         ->setPrice(200000)
-        //         ->setRooms(4)
-        //         ->setBedrooms(3)
-        //         ->setSurface(60)
-        //         ->setFloor(4)
-        //         ->setHeat(1)
-        //         ->setCity('Montpellier')
-        //         ->setAddress('15 boulevard Gambetta')
-        //         ->setPostalCode('34000')
-        //         ;
-
-        // $entityManager = $this->getDoctrine()->getManager();
-        // $entityManager->persist($property);
-        // $entityManager->flush();
-        // Fin programme :ajout d'un bien
-        
-
-
-        // $property = $this->getDoctrine()
-        // ->getRepository(Property::class)->findAll(); 
-
         return $this->render('property/index.html.twig', [
-            'current_menu' => 'properties'
+            'properties' => $propertyRepository->findAll(),
         ]);
     }
-    /**
-     * Undocumented function
-     * @Route("/biens/{slug}-{id}", name="property.show", requirements={"slug": "[a-z0-9\-]*"})
-     * @return response
-     */
-    public function show(Property $property, string $slug): response{
 
-        if ($property->getSlug() !== $slug){
-            return $this->redirectToRoute('property.show',
-            [
-                'id' => $property->getId(),
-                'slug' => $property->getSlug()
-            ],301);
+    /**
+     * @Route("/new", name="property_new", methods={"GET","POST"})
+     */
+    public function new(Request $request): Response
+    {
+        $property = new Property();
+        $form = $this->createForm(PropertyType::class, $property);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($property);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('property_index');
         }
 
-        return $this->render('property/show.html.twig', [
-            'current_menu' => 'properties',
-            'property' => $property
+        return $this->render('property/new.html.twig', [
+            'property' => $property,
+            'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/{id}", name="property_show", methods={"GET"})
+     */
+    public function show(Property $property): Response
+    {
+        return $this->render('property/show.html.twig', [
+            'property' => $property,
+        ]);
+    }
+
+    /**
+     * @Route("/{id}/edit", name="property_edit", methods={"GET","POST"})
+     */
+    public function edit(Request $request, Property $property): Response
+    {
+        $form = $this->createForm(PropertyType::class, $property);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('property_index');
+        }
+
+        return $this->render('property/edit.html.twig', [
+            'property' => $property,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/{id}", name="property_delete", methods={"DELETE"})
+     */
+    public function delete(Request $request, Property $property): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$property->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($property);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('property_index');
     }
 }
