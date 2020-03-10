@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blog index
+{% endblock %}
+
+{% block body %}
+	<a class="btn btn-primary btn-float-left" href="{{ path('blog_new') }}">New Article</a>
+	<div class="container">
+		<h1>Articles</h1>
+		<div class="card-columns">
+			{% for blog in blogs %}
+				<div class="card">
+					{% if blog.SrcPhoto != null %}
+						<img class="card-img-top" src="{{ blog.SrcPhoto }}" alt="Card image cap">
+					{% endif %}
+					<div class="card-body">
+						<h5 class="card-title">{{ blog.Title }}</h5>
+						<p class="card-text">{{ blog.Contenu|slice(0,50) }}...</p>
+						<p class="card-text">
+							<small class="text-muted">Last updated :
+								{{ blog.DateCreation ? blog.DateCreation|date('Y:m:d') : '' }}
+								by
+								{{ blog.Createur }}</small>
+						</p>
+					</div>
+					<div class="card-footer">
+						<a class="btn btn-primary" href="{{ path('blog_show', {'id': blog.id}) }}">Show</a>
+                        <a class="btn btn-primary" href="{{ path('blog_edit', {'id': blog.id}) }}">Edit</a>
+					</div>
+				</div>
+			{% else %}
+				<div>no records found</div>
+			{% endfor %}
+		</div>
+	</div>
+
+
+{% endblock %}
