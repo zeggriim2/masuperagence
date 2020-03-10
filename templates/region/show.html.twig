@@ -1,34 +1,26 @@
-{% extends "base.html.twig" %}
+{% extends 'base.html.twig' %}
 
 {% block stylesheets %}
     {{ parent() }}
     {{ encore_entry_link_tags('evenement') }}
 {% endblock %}
 
+{% block title %}Region{% endblock %}
+
 {% block body %}
 
-
-{% block javascripts %}
-    {{ parent() }}
-    {{ encore_entry_script_tags('evenement') }}
-{% endblock %}
-<div class="bandeauRegion">
+    <div class="bandeauRegion">
         <div class="card">
             <img class="card-img-top" src="https://cdn.checkyeti.com/images/original/ski-school-val-d-isere_sem-resort-hero.jpg?width=1919&cropWidth=3840&cropHeight=1101&cropY=1055&cropFirst=true" alt="Card image">
             <div class="card-img-overlay">
-                <h4 class="card-title">Isère</h4>
+                <h4 class="card-title">{{ region.name }}</h4>
                 <p class="card-text description">
-                    Le département de l’Isère est un département français de la région 
-                    Auvergne-Rhône-Alpes et tirant son nom de la rivière Isère, affluent de la rive gauche du Rhône. 
-                    L'Insee et La Poste lui attribuent le code 38. Sa préfecture est Grenoble.
-
-                    Au sein de la région Auvergne-Rhône-Alpes, l'Isère recouvre une grande partie de l'ancienne 
-                    région du Dauphiné dont la capitale était Grenoble et est par ailleurs le département le plus vaste et 
-                    le deuxième par la population ; ses habitants sont les Isérois et Iséroises.
+                    {{ region.description }}
                 </p>
             </div>
         </div>
     </div>
+
     <div class="row principal-sec">
         <div class="col-lg-1"></div>
         <div class="col-lg-3">
@@ -51,24 +43,26 @@
         </div>
         <div class="col-lg-8">
             <div class="row">
+            {# 
                 {% for property in properties %}
-                <div class="col-lg-5 col-md-12 margin-top">
-                    <div class="card card-hover">
-                        <img class="card-img-top" src="https://proprietes.lefigaro.fr/indicateur/images/PDF/CMS/articles/428831262-1524579879.1.jpg" alt="Card image">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <a href="{{ path('property.show', {id: property.id, slug: property.slug}) }}">{{ property.title }}</a>
-                            </h5>
-                            <p class="card-tex-tex">
-                                {{ property.city }} ({{ property.PostalCode }})
-                            </p>
-                            <div class="text-primary" style="font-size: 2rem ;font-weight: bold; ">
-                                {{ property.FormattedPrice }} €
+                    <div class="col-lg-5 col-md-12 margin-top">
+                        <div class="card card-hover">
+                            <img class="card-img-top" src="https://proprietes.lefigaro.fr/indicateur/images/PDF/CMS/articles/428831262-1524579879.1.jpg" alt="Card image">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="{{ path('property.show', {id: property.id, slug: property.slug}) }}">{{ property.title }}</a>
+                                </h5>
+                                <p class="card-tex-tex">
+                                    {{ property.city }} ({{ property.PostalCode }})
+                                </p>
+                                <div class="text-primary" style="font-size: 2rem ;font-weight: bold; ">
+                                    {{ property.FormattedPrice }} €
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>            
+                    </div>            
                 {% endfor %}
+            #}
             </div>
         </div>
     </div>
@@ -135,4 +129,15 @@
             </div>
         </div>
     </div>
-{% endblock body %}
+
+    <a href="{{ path('region_index') }}">back to list</a>
+
+    <a href="{{ path('region_edit', {'id': region.id}) }}">edit</a>
+
+    {{ include('region/_delete_form.html.twig') }}
+
+    {% block javascripts %}
+        {{ parent() }}
+        {{ encore_entry_script_tags('evenement') }}
+    {% endblock %}
+{% endblock %}

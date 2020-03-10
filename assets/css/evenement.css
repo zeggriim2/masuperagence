@@ -8,6 +8,11 @@
     position: relative;
 }
 
+.card {
+    height: 95%;
+    margin-top: 1rem;
+}
+
 .card-img-overlay {
     color: white;
 }
@@ -18,7 +23,7 @@
     padding: 1rem;
 }
 
-.card.card-hover:hover {
+.card.card-img-top:hover {
     cursor: pointer;
     background-color: rgba(128, 128, 128, 0.5);
 }
@@ -35,4 +40,16 @@
     .principal-sec {
         margin-top: 70px;
     }
+}
+
+
+.btn-fixed {
+    position: fixed;
+    margin-left: 2rem;
+    z-index: 1;
+}
+
+.titre-region {
+    margin-top: 70px;
+    text-align: center;
 }

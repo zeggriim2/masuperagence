@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('evenement') }}
+{% endblock %}
+
+{% block title %}Regions{% endblock %}
+
+{% block body %}
+    <div class="btn-fixed">
+        <a class="btn btn-primary" href="{{ path('region_new') }}">New</a>
+    </div>
+    <h1 class="titre-region">Regions disponibles</h1>
+    <div class="container">
+        <div class="row">
+            {% for region in regions %}
+                <div class="col-lg-4 col-md-12">
+                    <div class="card card-hover">
+                        <img class="card-img-top" src="https://proprietes.lefigaro.fr/indicateur/images/PDF/CMS/articles/428831262-1524579879.1.jpg" alt="Card image">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="{{ path('region_show', {id: region.id}) }}">{{ region.name }}</a>
+                            </h5>
+                            <p class="card-tex-tex">
+                                {{ region.description }}
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a class="btn btn-primary" href="{{ path('region_edit', {'id': region.id}) }}">edit</a>
+                        </div>
+                    </div>
+                </div>  
+            {% else %}
+                <tr>
+                    <td colspan="4">no records found</td>
+                </tr>
+            {% endfor %}
+
+        </div>
+    </div>
+{% endblock %}
