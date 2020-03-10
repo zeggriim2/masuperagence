@@ -23,7 +23,7 @@ Encore
      * Each entry will result in one JavaScript file (e.g. app.js)
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
-    
+
     .addEntry('app', './assets/js/app.js')
     .addEntry('evenement', './assets/js/evenement.js')
     //.addEntry('page1', './assets/js/page1.js')
@@ -55,6 +55,10 @@ Encore
         config.corejs = 3;
     })
 
+    .copyFiles({
+        from: './assets/img',
+    })
+
     // enables Sass/SCSS support
     //.enableSassLoader()
 
@@ -71,6 +75,6 @@ Encore
     // uncomment if you use API Platform Admin (composer req api-admin)
     //.enableReactPreset()
     //.addEntry('admin', './assets/js/admin.js')
-;
+    ;
 
 module.exports = Encore.getWebpackConfig();
