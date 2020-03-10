@@ -33,9 +33,10 @@ class BlogController extends AbstractController
         $blog = new Blog();
         $form = $this->createForm(BlogType::class, $blog);
         $form->handleRequest($request);
-
+        
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            $blog->setDateCreation(new \DateTime('today'));
             $entityManager->persist($blog);
             $entityManager->flush();
 

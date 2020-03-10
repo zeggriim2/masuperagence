@@ -16,7 +16,6 @@ class BlogType extends AbstractType
             ->add('Contenu')
             ->add('Createur')
             ->add('SrcPhoto')
-            ->add('DateCreation')
         ;
     }
 
