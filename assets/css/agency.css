@@ -6,6 +6,7 @@
 body {
   overflow-x: hidden;
   font-family: 'Whitman-romanLF';
+  margin-top: 5%;
 }
 
 p {
@@ -102,6 +103,21 @@ img::-moz-selection {
 }
 
 .btn-primary:active, .btn-primary:focus {
+  box-shadow: 0 0 0 0.2rem rgba(254, 209, 55, 0.5) !important;
+}
+
+.btn-secondary {
+  background-color: #DAA520;
+  border-color: #DAA520;
+}
+
+.btn-secondary:active, .btn-secondary:focus, .btn-secondary:hover {
+  background-color: #F0E36B !important;
+  border-color: #F0E36B !important;
+  color: white;
+}
+
+.btn-secondary:active, .btn-secondary:focus {
   box-shadow: 0 0 0 0.2rem rgba(254, 209, 55, 0.5) !important;
 }
 
@@ -816,4 +832,14 @@ label {
 
 .contact-form-connect {
   padding: 1.2rem;
+}
+
+.btn-float-left {
+  float: left;
+  position: fixed;
+  margin-left: 2%;
+}
+
+.logo-stilig {
+  margin-right: 0.5rem;
 }
