@@ -44,7 +44,7 @@
 
 
 .btn-fixed {
-    position: fixed;
+    position: absolute;
     margin-left: 2rem;
     z-index: 1;
 }
