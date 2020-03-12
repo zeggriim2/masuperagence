@@ -1,5 +1,4 @@
 {% extends 'base.html.twig' %}
-
 {% block stylesheets %}
     {{ parent() }}
     {{ encore_entry_link_tags('evenement') }}
@@ -17,7 +16,7 @@
             {% for region in regions %}
                 <div class="col-lg-4 col-md-12">
                     <div class="card card-hover">
-                        <img class="card-img-top" src="https://proprietes.lefigaro.fr/indicateur/images/PDF/CMS/articles/428831262-1524579879.1.jpg" alt="Card image">
+                        <img class="card-img-top" src="https://lh3.googleusercontent.com/proxy/hClr4SUUEa2EHSFsQ_-nWN1rzsRizppuOLub8BlB3s3Z5CYtI09ydMlo_icbbedXSJBWiS1YyahR3cXkh3yXaW-OJ1HU2Vd3GBwHmOHbo_lYb0UPX1Fi4dW9AmRnCH7sZcXmbLA" alt="Card image">
                         <div class="card-body">
                             <h5 class="card-title">
                                 <a href="{{ path('region_show', {id: region.id}) }}">{{ region.name }}</a>
