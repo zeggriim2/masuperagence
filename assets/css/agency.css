@@ -847,3 +847,8 @@ label {
 .logo-stilig {
   margin-right: 0.5rem;
 }
+
+.btn-right {
+  float: right;
+  margin-top: 1rem;
+}
