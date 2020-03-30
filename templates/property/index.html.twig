@@ -3,165 +3,153 @@
 {% block title %}Property index{% endblock %}
 
 {% block body %}
-    <h1>Property index</h1>
+    <div class="container">
+        <h1>Properties</h1>
+        <hr/>
+        <div class="row">
+            {% for property in properties %}
+                <div class="col-lg-4 col-md-6">
+                    <div class="card card-hover">
+                        <img class="card-img-top"
+                             src="https://proprietes.lefigaro.fr/indicateur/images/PDF/CMS/articles/428831262-1524579879.1.jpg"
+                             alt="Card image">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="{{ path('property_show', {id: property.id}) }}">{{ property.title }}</a>
+                            </h5>
+                            <p class="card-tex-tex">
+                                {{ property.description }}
+                            </p>
+                            <p>{{ property.city }}</p>
+                            <p>{{ property.address }}</p>
+                            <p>{{ property.postalCode }}</p>
+                            <div>
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <p>{{ property.surface }}</p>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <p>{{ property.rooms }}</p>
+                                    </div>
 
-    <table class="table">
-
-        <tbody>
-        {% for property in properties %}
-            <div class="col-lg-4 col-md-6">
-                <div class="card card-hover">
-                    <img class="card-img-top" src="https://proprietes.lefigaro.fr/indicateur/images/PDF/CMS/articles/428831262-1524579879.1.jpg" alt="Card image">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <a href="{{ path('property_show', {id: property.id}) }}">{{ property.title  }}</a>
-                        </h5>
-                        <p class="card-tex-tex">
-                            {{ property.description }}
-                        </p>
-                        <div>
-                            <div class="row">
-                                <div class="col-lg-2">
-                                    <p>{{ property.surface }}</p>
                                 </div>
-                                <div class="col-lg-1"></div>
-                                <div class="col-lg-2">
-                                    <p>{{ property.rooms }}</p>
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <p>{{ property.bedrooms }}</p>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <p>{{ property.floor }}</p>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <p>{{ property.price }}€</p>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <p>{{ property.heat }}</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-2">
-                                    <p>{{ property.bedrooms }}</p>
+                                <div class="row">
+                                    <div class="col-lg-1"></div>
+                                    <div class="col-lg-2">
+                                        <p>{{ property.sold ? '<i class="fas fa-swimming-pool"></i>' }}</p>
+                                    </div>
                                 </div>
-                                <div class="col-lg-1"></div>
-                                <div class="col-lg-2">
-                                    <p>{{ property.floor }}</p>
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <p>{{ property.swimmingpool ? '<i class="fas fa-swimming-pool"></i>' }}</p>
+                                    </div>
+                                    <div class="col-lg-1"></div>
+                                    <div class="col-lg-2">
+                                        <p>{{ property.sauna ? '<i class="fas fa-swimming-pool"></i>' : 'No' }}</p>
+                                    </div>
+                                    <div class="col-lg-1"></div>
+                                    <div class="col-lg-2">
+                                        <p>{{ property.wifi ? '<i class="fas fa-wifi "></i>' : 'No' }}</p>
+                                    </div>
+                                    <div class="col-lg-1"></div>
+                                    <div class="col-lg-2">
+                                        <p>{{ property.sport ? 'Yes' : 'No' }}</p>
+                                    </div>
                                 </div>
-                                <div class="col-lg-1"></div>
-                                <div class="col-lg-2">
-                                    <p>{{ property.price }}</p>
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <p>{{ property.helipad ? 'Yes' : 'No' }}</p>
+                                    </div>
+                                    <div class="col-lg-1"></div>
+                                    <div class="col-lg-2">
+                                        <p>{{ property.terrasse ? 'Yes' : 'No' }}</p>
+                                    </div>
+                                    <div class="col-lg-1"></div>
+                                    <div class="col-lg-2">
+                                        <p>{{ property.balcon ? 'Yes' : 'No' }}</p>
+                                    </div>
+                                    <div class="col-lg-1"></div>
+                                    <div class="col-lg-2">
+                                        <p>{{ property.hifi ? 'Yes' : 'No' }}</p>
+                                    </div>
                                 </div>
-                                <div class="col-lg-1"></div>
-                                <div class="col-lg-2">
-                                    <p>{{ property.heat }}</p>
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <p>{{ property.television ? 'Yes' : 'No' }}</p>
+                                    </div>
+                                    <div class="col-lg-1"></div>
+                                    <div class="col-lg-2">
+                                        <p>{{ property.montagnevue ? 'Yes' : 'No' }}</p>
+                                    </div>
+                                    <div class="col-lg-1"></div>
+                                    <div class="col-lg-2">
+                                        <p>{{ property.plageprox ? 'Yes' : 'No' }}</p>
+                                    </div>
+                                    <div class="col-lg-1"></div>
+                                    <div class="col-lg-2">
+                                        <p>{{ property.mervue ? 'Yes' : 'No' }}</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-2">
-                                    <p>{{ property.city }}</p>
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <p>{{ property.enville ? 'Yes' : 'No' }}</p>
+                                    </div>
+                                    <div class="col-lg-1"></div>
+                                    <div class="col-lg-2">
+                                        <p>{{ property.visavis ? 'Yes' : 'No' }}</p>
+                                    </div>
+                                    <div class="col-lg-1"></div>
+                                    <div class="col-lg-2">
+                                        <p>{{ property.plageprive ? 'Yes' : 'No' }}</p>
+                                    </div>
+                                    <div class="col-lg-1"></div>
+                                    <div class="col-lg-2">
+                                        <p>{{ property.pieddanseau ? 'Yes' : 'No' }}</p>
+                                    </div>
                                 </div>
-                                <div class="col-lg-1"></div>
-                                <div class="col-lg-2">
-                                    <p>{{ property.address }}</p>
-                                </div>
-                                <div class="col-lg-1"></div>
-                                <div class="col-lg-2">
-                                    <p>{{ property.postalCode }}</p>
-                                </div>
-                                <div class="col-lg-1"></div>
-                                <div class="col-lg-2">
-                                    <p>{{ property.sold ? 'Yes' : 'No' }}</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-2">
-                                    <p>{{ property.swimmingpool ? 'Yes' : 'No' }}</p>
-                                </div>
-                                <div class="col-lg-1"></div>
-                                <div class="col-lg-2">
-                                    <p>{{ property.sauna ? 'Yes' : 'No' }}</p>
-                                </div>
-                                <div class="col-lg-1"></div>
-                                <div class="col-lg-2">
-                                    <p>{{ property.wifi ? 'Yes' : 'No' }}</p>
-                                </div>
-                                <div class="col-lg-1"></div>
-                                <div class="col-lg-2">
-                                    <p>{{ property.sport ? 'Yes' : 'No' }}</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-2">
-                                    <p>{{ property.helipad ? 'Yes' : 'No' }}</p>
-                                </div>
-                                <div class="col-lg-1"></div>
-                                <div class="col-lg-2">
-                                    <p>{{ property.terrasse ? 'Yes' : 'No' }}</p>
-                                </div>
-                                <div class="col-lg-1"></div>
-                                <div class="col-lg-2">
-                                    <p>{{ property.balcon ? 'Yes' : 'No' }}</p>
-                                </div>
-                                <div class="col-lg-1"></div>
-                                <div class="col-lg-2">
-                                    <p>{{ property.hifi ? 'Yes' : 'No' }}</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-2">
-                                    <p>{{ property.television ? 'Yes' : 'No' }}</p>
-                                </div>
-                                <div class="col-lg-1"></div>
-                                <div class="col-lg-2">
-                                    <p>{{ property.montagnevue ? 'Yes' : 'No' }}</p>
-                                </div>
-                                <div class="col-lg-1"></div>
-                                <div class="col-lg-2">
-                                    <p>{{ property.plageprox ? 'Yes' : 'No' }}</p>
-                                </div>
-                                <div class="col-lg-1"></div>
-                                <div class="col-lg-2">
-                                    <p>{{ property.mervue ? 'Yes' : 'No' }}</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-2">
-                                    <p>{{ property.enville ? 'Yes' : 'No' }}</p>
-                                </div>
-                                <div class="col-lg-1"></div>
-                                <div class="col-lg-2">
-                                    <p>{{ property.visavis ? 'Yes' : 'No' }}</p>
-                                </div>
-                                <div class="col-lg-1"></div>
-                                <div class="col-lg-2">
-                                    <p>{{ property.plageprive ? 'Yes' : 'No' }}</p>
-                                </div>
-                                <div class="col-lg-1"></div>
-                                <div class="col-lg-2">
-                                    <p>{{ property.pieddanseau ? 'Yes' : 'No' }}</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-2">
-                                    <p>{{ property.centreville ? 'Yes' : 'No' }}</p>
-                                </div>
-                                <div class="col-lg-1"></div>
-                                <div class="col-lg-2">
-                                    <p>{{ property.champetre ? 'Yes' : 'No' }}</p>
-                                </div>
-                                <div class="col-lg-1"></div>
-                                <div class="col-lg-2">
-                                    <p>{{ property.typepropriete }}</p>
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <p>{{ property.centreville ? 'Yes' : 'No' }}</p>
+                                    </div>
+                                    <div class="col-lg-1"></div>
+                                    <div class="col-lg-2">
+                                        <p>{{ property.champetre ? 'Yes' : 'No' }}</p>
+                                    </div>
+                                    <div class="col-lg-1"></div>
+                                    <div class="col-lg-2">
+                                        <p>{{ property.typepropriete }}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="card-footer">
+                            <a class="btn btn-primary" href="{{ path('property_edit', {'id': property.id}) }}">edit</a>
+                        </div>
                     </div>
-                    <div class="card-footer">
-                        <a class="btn btn-primary" href="{{ path('property_edit', {'id': property.id}) }}">edit</a>
-                    </div>
-
                 </div>
+            {% else %}
+                <div>
+                    <p>no property found</p>
+                </div>
+            {% endfor %}
+        </div>
 
-            </div>
 
+        <a href="{{ path('property_new') }}">Create new</a>
+    </div>
 
-        {% else %}
-            <tr>
-                <td colspan="34">no property found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('property_new') }}">Create new</a>
 {% endblock %}

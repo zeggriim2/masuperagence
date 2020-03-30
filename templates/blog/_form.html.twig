@@ -1,4 +1,36 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+<div class="container well">
+    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+    {# Les erreurs générales du formulaire. #}
+    {{ form_errors(form) }}
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-6">
+                {{ form_label(form.Title, "Title", {'label_attr': {'class': 'control-label'}}) }}
+                {{ form_errors(form.Title) }}
+                {{ form_widget(form.Title, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="col-sm-6">
+                {{ form_label(form.Createur, "Author", {'label_attr': {'class': 'control-label'}}) }}
+                {{ form_errors(form.Createur) }}
+                {{ form_widget(form.Createur, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        {{ form_label(form.Contenu, "Description", {'label_attr': {'class': 'control-label'}}) }}
+        {{ form_errors(form.Contenu) }}
+        {{ form_widget(form.Contenu, {'attr': {'class': 'form-control textarea-lg'}}) }}
+    </div>
+    {{ form_row(form.SrcPhoto) }}
+
+    <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+    <a class="btn btn-secondary" href="{{ path('blog_index') }}">Cancel</a>
+
+    {# Génération automatique des champs pas encore écrits.#}
+    {{ form_rest(form) }}
+
+    {# Fermeture de la balise <form> du formulaire HTML #}
+    {{ form_end(form) }}
+</div>

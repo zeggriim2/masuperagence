@@ -4,9 +4,10 @@
 {% endblock %}
 
 {% block body %}
-	<a class="btn btn-primary btn-float-left" href="{{ path('blog_new') }}">New Article</a>
-	<div class="container">
+	<a class="btn btn-primary btn-float-left margin-top" href="{{ path('blog_new') }}">New Article</a>
+	<div class="container margin-top">
 		<h1>Articles</h1>
+		<hr/>
 		<div class="card-columns">
 			{% for blog in blogs %}
 				<div class="card">

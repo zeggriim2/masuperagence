@@ -4,88 +4,117 @@
 {% endblock %}
 
 {% block body %}
-	<header class="masthead">
-		<div class="container">
-			<div class="intro-text">
-				<div class="intro-heading text-uppercase">Stilig Company</div>
-				<div class="intro-lead-in">We protect heritage, you write the history</div>
-			</div>
-		</div>
-	</header>
-	<div class="container margin-top">
-		<div class="row">
-			<div class="col-lg-12 text-center">
-				<h2 class="section-heading text-uppercase">Présentation</h2>
-				<h3 class="section-subheading text-muted"></h3>
-				<hr/>
-			</div>
-		</div>
-		<div class="row text-center">
-			<div class="col-md-4">
+    <header class="masthead">
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-heading text-uppercase">Stiligs</div>
+                <div class="intro-lead-in">We protect heritage, you write the history</div>
+            </div>
+        </div>
+    </header>
+    <div class="container margin-top">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading text-uppercase">Présentation</h2>
+                <h3 class="section-subheading text-muted"></h3>
+                <hr/>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-4">
 				<span class="fa-stack fa-4x">
 					<i class="fas fa-circle fa-stack-2x text-primary"></i>
 					<i class="fas fa-calendar fa-stack-1x fa-inverse"></i>
 				</span>
-				<h4 class="service-heading">Evénements</h4>
-				<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-			</div>
-			<div class="col-md-4">
+                <h4 class="service-heading">Evénements</h4>
+                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
+                    architecto quo inventore harum ex magni, dicta impedit.</p>
+            </div>
+            <div class="col-md-4">
 				<span class="fa-stack fa-4x">
 					<i class="fas fa-circle fa-stack-2x text-primary"></i>
 					<i class="fas fa-globe fa-stack-1x fa-inverse"></i>
 				</span>
-				<h4 class="service-heading">Vacances</h4>
-				<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-			</div>
-			<div class="col-md-4">
+                <h4 class="service-heading">Vacances</h4>
+                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
+                    architecto quo inventore harum ex magni, dicta impedit.</p>
+            </div>
+            <div class="col-md-4">
 				<span class="fa-stack fa-4x">
 					<i class="fas fa-circle fa-stack-2x text-primary"></i>
 					<i class="fas fa-child fa-stack-1x fa-inverse"></i>
 				</span>
-				<h4 class="service-heading">Conciergerie</h4>
-				<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-			</div>
-		</div>
-		<div class="row margin-top">
-			<div class="col-lg-12 text-center">
-				<h2 class="text-uppercase">Last properties</h2>
-				<hr/>
-			</div>
-			<!-- Load of lastest properties -->
-		</div>
-		<div class="row margin-top">
-			<div class="col-lg-12 text-center">
-				<h2 class="text-uppercase">Last articles</h2>
-				<hr/>
-			</div>
-			<div class="card-deck">
-				{% for blog in articles %}
-					<div class="card">
-						<div class="card-body">
-							<h5 class="card-title">{{ blog.Title }}</h5>
-							<p class="card-text">{{ blog.Contenu|slice(0,50) }}...</p>
-							<p class="card-text">
-								<small class="text-muted">Last updated :
-									{{ blog.DateCreation ? blog.DateCreation|date('Y:m:d') : '' }}
-									by
-									{{ blog.Createur }}</small>
-							</p>
-						</div>
-						<div class="card-footer">
-							<a class="btn btn-primary" href="{{ path('blog_show', {'id': blog.id}) }}">Show</a>
-							<a class="btn btn-primary" href="{{ path('blog_edit', {'id': blog.id}) }}">Edit</a>
-						</div>
-					</div>
-				{% else %}
-					<div>no records found</div>
-				{% endfor %}
-			</div>
-			<div class="col-lg-12">
-				<a class="btn btn-primary btn-right" href="{{ path('blog_index') }}">Show all</a>
-			</div>
-			<div class="col-lg-12">
-				<hr/>
-			</div>
-		</div>
-	</div>
+                <h4 class="service-heading">Conciergerie</h4>
+                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
+                    architecto quo inventore harum ex magni, dicta impedit.</p>
+            </div>
+        </div>
+        <div class="row margin-top">
+            <div class="col-lg-12 text-center">
+                <h2 class="text-uppercase">Last articles</h2>
+                <hr/>
+            </div>
+            <div class="card-deck">
+                {% for blog in articles %}
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ blog.Title }}</h5>
+                            <p class="card-text">{{ blog.Contenu|slice(0,50) }}...</p>
+                            <p class="card-text">
+                                <small class="text-muted">Last updated :
+                                    {{ blog.DateCreation ? blog.DateCreation|date('Y:m:d') : '' }}
+                                    by
+                                    {{ blog.Createur }}</small>
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a class="btn btn-primary" href="{{ path('blog_show', {'id': blog.id}) }}">Show</a>
+                            <a class="btn btn-primary" href="{{ path('blog_edit', {'id': blog.id}) }}">Edit</a>
+                        </div>
+                    </div>
+                {% else %}
+                    <div>no records found</div>
+                {% endfor %}
+            </div>
+            <div class="col-lg-12">
+                <a class="btn btn-primary btn-right" href="{{ path('blog_index') }}">Show all</a>
+            </div>
+        </div>
+        <div class="row margin-top">
+            <div class="col-lg-12 text-center">
+                <h2 class="text-uppercase">Last properties</h2>
+                <hr/>
+            </div>
+            <div class="card-deck">
+                {% for property in properties %}
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="card">
+                                <img class="card-img-top"
+                                     src="https://proprietes.lefigaro.fr/indicateur/images/PDF/CMS/articles/428831262-1524579879.1.jpg"
+                                     alt="Card image">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <a href="{{ path('property_show', {id: property.id}) }}">{{ property.title }}</a>
+                                    </h5>
+                                    <p>Address : {{ property.city }} {{ property.postalCode }} - {{ property.address }}</p>
+                                </div>
+                                <div class="card-footer">
+                                    <a class="btn btn-primary" href="{{ path('property_edit', {'id': property.id}) }}">edit</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <div>
+                        <p>no property found</p>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="col-lg-12">
+                <a class="btn btn-primary btn-right" href="{{ path('property_index') }}">Show all</a>
+            </div>
+        </div>
+
+    </div>
 {% endblock %}

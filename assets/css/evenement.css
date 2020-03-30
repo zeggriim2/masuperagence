@@ -3,9 +3,7 @@
 }
 
 .bandeauRegion {
-    margin-top: 70px;
     width: 100%;
-    position: relative;
 }
 
 .card {
@@ -21,6 +19,11 @@
     width: 50%;
     background-color: rgba(0, 0, 0, 0.658);
     padding: 1rem;
+}
+
+.card.card-img-top {
+    cursor: pointer;
+    background-color: rgba(128, 128, 128, 0.5);
 }
 
 .card.card-img-top:hover {

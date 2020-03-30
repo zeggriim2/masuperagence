@@ -14,15 +14,15 @@ p {
 }
 
 a {
-  color: #DAA520;
+  color: black;
 }
 
 a:hover {
-  color: #DAA520;
+  color: black;
 }
 
 .text-primary {
-  color: #DAA520 !important;
+  color: black !important;
 }
 
 h1,
@@ -61,12 +61,12 @@ h6 {
 }
 
 ::-moz-selection {
-  background: #DAA520;
+  background: black;
   text-shadow: none;
 }
 
 ::selection {
-  background: #DAA520;
+  background: black;
   text-shadow: none;
 }
 
@@ -92,8 +92,8 @@ img::-moz-selection {
 }
 
 .btn-primary {
-  background-color: #DAA520;
-  border-color: #DAA520;
+  background-color: black;
+  border-color: black;
 }
 
 .btn-primary:active, .btn-primary:focus, .btn-primary:hover {
@@ -107,22 +107,22 @@ img::-moz-selection {
 }
 
 .btn-secondary {
-  background-color: #DAA520;
-  border-color: #DAA520;
+  background-color: grey;
+  border-color: grey;
 }
 
 .btn-secondary:active, .btn-secondary:focus, .btn-secondary:hover {
-  background-color: #F0E36B !important;
-  border-color: #F0E36B !important;
+  background-color: #9b9b9b !important;
+  border-color: #9b9b9b !important;
   color: white;
 }
 
 .btn-secondary:active, .btn-secondary:focus {
-  box-shadow: 0 0 0 0.2rem rgba(254, 209, 55, 0.5) !important;
+  box-shadow: 0 0 0 0.2rem rgba(229, 240, 230, 0.5) !important;
 }
 
 #mainNav {
-  background-color: #981A15;
+  background-color: black;
 }
 
 #mainNav .navbar-toggler {
@@ -132,17 +132,17 @@ img::-moz-selection {
   text-transform: uppercase;
   color: white;
   border: 0;
-  background-color: #DAA520;
+  background-color: black;
   font-family: 'Whitman-romanLF';
 }
 
 #mainNav .navbar-brand {
-  color: #DAA520;
+  color: black;
   font-family: 'Whitman-romanLF';
 }
 
 #mainNav .navbar-brand.active, #mainNav .navbar-brand:active, #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
-  color: #DAA520;
+  color: black;
 }
 
 #mainNav .navbar-nav .nav-item .nav-link {
@@ -155,7 +155,7 @@ img::-moz-selection {
 }
 
 #mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {
-  color: #DAA520;
+  color: black;
 }
 
 @media (min-width: 992px) {
@@ -176,7 +176,7 @@ img::-moz-selection {
   #mainNav.navbar-shrink {
     padding-top: 0;
     padding-bottom: 0;
-    background-color: #981A15;
+    background-color: black;
   }
   #mainNav.navbar-shrink .navbar-brand {
     font-size: 1.7em;
@@ -260,7 +260,7 @@ header.masthead .intro-text .intro-heading {
   height: 100%;
   transition: all ease 0.5s;
   opacity: 0;
-  background: #DAA520;
+  background: black;
 }
 
 #portfolio .portfolio-item .portfolio-link .portfolio-hover:hover {
@@ -455,7 +455,7 @@ header.masthead .intro-text .intro-heading {
   color: white;
   border: 7px solid #e9ecef;
   border-radius: 100%;
-  background-color: #DAA520;
+  background-color: black;
 }
 
 .timeline > li .timeline-image h4 {
@@ -624,7 +624,7 @@ section#contact .form-group textarea.form-control {
 }
 
 section#contact .form-control:focus {
-  border-color: #DAA520;
+  border-color: black;
   box-shadow: none;
 }
 
@@ -690,7 +690,7 @@ ul.social-buttons li a {
 }
 
 ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons li a:hover {
-  background-color: #DAA520;
+  background-color: black;
 }
 
 .button-center{
@@ -698,7 +698,7 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
 }
 
 #secondNav {
-  background-color: #981A15;
+  background-color: black;
 }
 
 #secondNav .navbar-toggler {
@@ -708,17 +708,17 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
   text-transform: uppercase;
   color: white;
   border: 0;
-  background-color: #DAA520;
+  background-color: black;
   font-family: 'Whitman-romanLF';
 }
 
 #secondNav .navbar-brand {
-  color: #DAA520;
+  color: white;
   font-family: 'Whitman-romanLF';
 }
 
 #secondNav .navbar-brand.active, #secondNav .navbar-brand:active, #secondNav .navbar-brand:focus, #secondNav .navbar-brand:hover {
-  color: #DAA520;
+  color: white;
 }
 
 #secondNav .navbar-nav .nav-item .nav-link {
@@ -726,7 +726,7 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
   font-weight: 400;
   padding: 0.75em 0;
   letter-spacing: 1px;
-  color: #DAA520;
+  color: white;
   font-family: 'Whitman-romanLF';
   margin-left: 3rem;
 }
@@ -749,9 +749,9 @@ label {
 }
 
 .titleprghp {
-  background:#981A15;
+  background:black;
   height: 46px;
-  color: #DAA520;
+  color: white;
   font-size: 1rem;
   font-family: 'Whitman-romanLF';
   border-radius: 20px 1px;
@@ -761,7 +761,7 @@ label {
   margin: 20px 0 20px;
 }
 .dropdown-menu{
-  background-color: #981A15;
+  background-color: black;
 }
 
 .dropdown-menu a{
@@ -773,13 +773,13 @@ label {
 }
 
 .dropdown-menu a:hover{
-  color:#DAA520;
+  color:black;
   text-decoration: none;
   margin-left: 5px; 
 }
 
 .border-bottom-gold{
-  border-bottom: 1px solid #DAA520;
+  border-bottom: 1px solid black;
   width:85%;
   margin: auto;
 }
@@ -806,12 +806,12 @@ label {
 
 .modal-content.modal-content-connect {
   color: white;
-  background-color: #981A15;
+  background-color: black;
 }
 
 .form-title {
   text-align: center;
-  color: #DAA520;
+  color: black;
 }
 
 .close {
@@ -851,4 +851,8 @@ label {
 .btn-right {
   float: right;
   margin-top: 1rem;
+}
+
+.textarea-lg{
+  height: 250px !important;
 }
